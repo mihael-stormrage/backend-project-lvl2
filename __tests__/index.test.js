@@ -36,3 +36,15 @@ test('gendiff --help', () => {
       -f, --format [type]  output format
       -h, --help           output usage information`);
 });
+
+test('genDiff(data1, data2) fn', () => {
+  expect(genDiff(data1, data2)).toBe(outdent`
+    {
+      - follow: false
+        host: hexlet.io
+      - proxy: 123.234.53.22
+      - timeout: 50
+      + timeout: 20
+      + verbose: true
+    }`);
+});
