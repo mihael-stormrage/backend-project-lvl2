@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import gendiff from '../src';
 
 test('gendiff --help', () => {
-  expect(gendiff.helpInformation()).toBe(outdent`
+  expect(gendiff.helpInformation().trim()).toBe(outdent`
     Usage: gendiff [options]
 
     Compares two configuration files and shows a difference.
