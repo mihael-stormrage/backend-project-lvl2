@@ -1,7 +1,7 @@
 import { Command } from 'commander/esm.mjs';
 import fs from 'fs';
 
-export const getData = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
+const getData = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
 
 const genDiff = (data1, data2) => {
 
@@ -15,4 +15,4 @@ program.name('gendiff').version('0.0.5')
   .helpOption('', 'output usage information')
   .option('-f, --format [type]', 'output format');
 
-export default program;
+export { genDiff as default, program as gendiff, getData };
