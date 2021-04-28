@@ -1,5 +1,15 @@
+import fs from 'fs';
+import path from 'path';
 import outdent from 'outdent';
-import gendiff from '../src';
+import gendiff, { getData } from '../src';
+
+test('getData(path)', () => {
+  expect(getData('fixtures/file2.json')).toEqual({
+    timeout: 20,
+    verbose: true,
+    host: 'hexlet.io',
+  });
+});
 
 test('gendiff --help', () => {
   expect(gendiff.helpInformation().trim()).toBe(outdent`

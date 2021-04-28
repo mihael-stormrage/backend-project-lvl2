@@ -1,5 +1,11 @@
 import { Command } from 'commander/esm.mjs';
 
+export const getData = (path) => {};
+
+const genDiff = (data1, data2) => {
+
+};
+
 const program = new Command();
 
 program.name('gendiff').version('0.0.4')
