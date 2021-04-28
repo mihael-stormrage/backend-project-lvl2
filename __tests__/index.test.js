@@ -7,9 +7,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const fixturesDir = path.resolve(__dirname, 'fixtures');
+const getFixture = (file) => getData(path.resolve(fixturesDir, file));
+
+let data1;
+let data2;
+
+beforeEach(() => {
+  data1 = getFixture('file1.json');
+  data2 = getFixture('file2.json');
+});
 
 test('getData(path)', () => {
-  expect(getData(path.resolve(fixturesDir, 'file2.json'))).toEqual({
+  expect(getFixture('file2.json')).toEqual({
     timeout: 20,
     verbose: true,
     host: 'hexlet.io',
