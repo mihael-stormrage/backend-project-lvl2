@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "type": "module",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "main": "src/index.js",
   "author": "Mihael Stormrage",
   "license": "ISC",
@@ -25,6 +25,7 @@
     "outdent": "^0.8.0"
   },
   "dependencies": {
-    "commander": "^7.2.0"
+    "commander": "^7.2.0",
+    "lodash": "^4.17.21"
   }
 }
