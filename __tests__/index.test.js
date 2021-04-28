@@ -3,7 +3,7 @@ import gendiff from '../src';
 
 test('gendiff --help', () => {
   expect(gendiff.helpInformation().trim()).toBe(outdent`
-    Usage: gendiff [options]
+    Usage: gendiff [options] <filepath1> <filepath2>
 
     Compares two configuration files and shows a difference.
 
