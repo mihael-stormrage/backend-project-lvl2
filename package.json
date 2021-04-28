@@ -1,0 +1,26 @@
+{
+  "name": "@hexlet/code",
+  "type": "module",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "author": "Mihael Stormrage",
+  "license": "ISC",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "scripts": {
+    "start": "gendiff",
+    "test": "jest --colors"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {}
+  },
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.4",
+    "jest": "^26.6.3"
+  }
+}
