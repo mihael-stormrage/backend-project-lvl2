@@ -6,7 +6,7 @@ import genDiff, { gendiff, getData } from '../src';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const fixturesDir = path.resolve(__dirname, 'fixtures');
+const fixturesDir = path.resolve(__dirname, '..', '__fixtures__');
 const getFixture = (file) => getData(path.resolve(fixturesDir, file));
 
 let data1;

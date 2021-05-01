@@ -13,7 +13,7 @@ clear
 
 # script
 pe "gendiff -h"
-cd __tests__/fixtures
+cd __fixtures__
 pe "gendiff file1.json file2.json"
 
 PROMPT_TIMEOUT=3
