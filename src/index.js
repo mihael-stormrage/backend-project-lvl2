@@ -5,7 +5,7 @@ import _ from 'lodash';
 const getData = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
 
 const genDiff = (data1, data2) => {
-  if (_.isEqual(data1, data2)) return JSON.stringify(data1);
+  if (_.isEqual(data1, data2)) return 'No difference';
   const indent = '  ';
   const diff = _.mergeWith(_.cloneDeep(data1), data2, (oldVal, newVal) => ({ oldVal, newVal }));
   const lines = _.sortBy(Object.entries(diff))
