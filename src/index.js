@@ -24,10 +24,11 @@ const genDiff = (data1, data2) => {
 
 const program = new Command();
 
-program.name('gendiff').version('0.0.5')
+program.name('gendiff').version('0.1.1')
   .description('Compares two configuration files and shows a difference.')
   .arguments('<filepath1> <filepath2>')
   .helpOption('', 'output usage information')
-  .option('-f, --format [type]', 'output format');
+  .option('-f, --format [type]', 'output format')
+  .action((file1, file2) => console.log(genDiff(getData(file1), getData(file2))));
 
 export { genDiff as default, program as gendiff, getData };

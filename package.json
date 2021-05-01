@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "src/index.js",
   "author": "Mihael Stormrage",
   "license": "ISC",
