@@ -14,6 +14,8 @@
       -f, --format [type]  output format
       -h, --help           output usage information
 
+[![asciicast](docs/demo.svg)](https://asciinema.org/a/274P3VF0wuiQt0pMYXcbmQYjq)
+
 ## Installation & Usage
 ### Stand-alone
 Clone project, then:
