@@ -24,7 +24,7 @@ const genDiff = (data1, data2) => {
 
 const program = new Command();
 
-program.name('gendiff').version('0.1.1')
+program.name('gendiff').version('0.1.2')
   .description('Compares two configuration files and shows a difference.')
   .arguments('<filepath1> <filepath2>')
   .helpOption('', 'output usage information')
