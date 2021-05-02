@@ -18,11 +18,20 @@ beforeEach(() => {
 });
 
 test('getData(path)', () => {
-  expect(getFixture('file2.json')).toEqual({
+  const obj1 = {
+    host: 'hexlet.io',
+    timeout: 50,
+    proxy: '123.234.53.22',
+    follow: false,
+  };
+  const obj2 = {
     timeout: 20,
     verbose: true,
     host: 'hexlet.io',
-  });
+  };
+  expect(getFixture('file1.json')).toEqual(obj1);
+  expect(getFixture('file1.yaml')).toEqual(obj1);
+  expect(getFixture('file2.yml')).toEqual(obj2);
 });
 
 test('gendiff --help', () => {
