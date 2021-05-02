@@ -1,14 +1,6 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
 import outdent from 'outdent';
 import genDiff, { gendiff } from '../src';
-import getData from '../src/parsers.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const fixturesDir = path.resolve(__dirname, '..', '__fixtures__');
-const getFixture = (file) => getData(path.resolve(fixturesDir, file));
+import getFixture from './parsers.test.js';
 
 let data1;
 let data2;
@@ -16,23 +8,6 @@ let data2;
 beforeEach(() => {
   data1 = getFixture('file1.json');
   data2 = getFixture('file2.json');
-});
-
-test('getData(path)', () => {
-  const obj1 = {
-    host: 'hexlet.io',
-    timeout: 50,
-    proxy: '123.234.53.22',
-    follow: false,
-  };
-  const obj2 = {
-    timeout: 20,
-    verbose: true,
-    host: 'hexlet.io',
-  };
-  expect(getFixture('file1.json')).toEqual(obj1);
-  expect(getFixture('file1.yaml')).toEqual(obj1);
-  expect(getFixture('file2.yml')).toEqual(obj2);
 });
 
 test('gendiff --help', () => {
