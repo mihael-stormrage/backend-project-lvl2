@@ -1,7 +1,8 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 import outdent from 'outdent';
-import genDiff, { gendiff, getData } from '../src';
+import genDiff, { gendiff } from '../src';
+import getData from '../src/parsers.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
