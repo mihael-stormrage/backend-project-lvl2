@@ -1,8 +1,6 @@
 import { Command } from 'commander/esm.mjs';
-import fs from 'fs';
 import _ from 'lodash';
-
-const getData = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
+import getData from './parsers.js';
 
 const genDiff = (data1, data2) => {
   if (_.isEqual(data1, data2)) return 'No difference';
@@ -24,11 +22,11 @@ const genDiff = (data1, data2) => {
 
 const program = new Command();
 
-program.name('gendiff').version('0.1.2')
+program.name('gendiff').version('0.2.0')
   .description('Compares two configuration files and shows a difference.')
   .arguments('<filepath1> <filepath2>')
   .helpOption('', 'output usage information')
   .option('-f, --format [type]', 'output format')
   .action((file1, file2) => console.log(genDiff(getData(file1), getData(file2))));
 
-export { genDiff as default, program as gendiff, getData };
+export { genDiff as default, program as gendiff };
