@@ -14,7 +14,7 @@
       -f, --format [type]  output format
       -h, --help           output usage information
 
-[![asciicast](docs/demo.svg)](https://asciinema.org/a/274P3VF0wuiQt0pMYXcbmQYjq)
+[![asciicast](docs/demo.svg)](https://asciinema.org/a/5uJulZJoxlwbBOXVdLbPvCiwK)
 
 ## Installation & Usage
 ### Stand-alone

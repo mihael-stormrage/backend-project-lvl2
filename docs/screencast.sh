@@ -15,6 +15,11 @@ clear
 pe "gendiff -h"
 cd __fixtures__
 pe "gendiff file1.json file2.json"
+PROMPT_TIMEOUT=2
+wait
+clear
+pe "gendiff file1.yaml file2.yml"
+pe "gendiff file1.json file1.yaml"
 
 PROMPT_TIMEOUT=3
 wait

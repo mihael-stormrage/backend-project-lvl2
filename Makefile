@@ -16,7 +16,7 @@ lint:
 record:
 	asciinema rec -c "docs/screencast.sh" docs/demo.cast --overwrite
 
-publish-record: record
+publish-record:
 	asciinema upload docs/demo.cast
 
 svg: record
