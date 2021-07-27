@@ -21,5 +21,5 @@ test('gendiff --help', () => {
 
 test('genDiff(data1, data2) fn', () => {
   expect(genDiff(data1, data1)).toBe('No difference');
-  expect(genDiff(data1, data2)).toBe(getFixture('stylish'));
+  expect(genDiff(data1, data2)).toBe(getFixture('stylish').trim());
 });
