@@ -11,10 +11,10 @@
 
     Options:
       -V, --version        output the version number
-      -f, --format [type]  output format
+      -f, --format [type]  output format (default: "stylish")
       -h, --help           output usage information
 
-[![asciicast](docs/demo.svg)](https://asciinema.org/a/5uJulZJoxlwbBOXVdLbPvCiwK)
+[![asciicast](docs/demo.svg)](https://asciinema.org/a/rHyP05wDGJWJW51XbDip4EUb3)
 
 ## Installation & Usage
 ### Stand-alone
