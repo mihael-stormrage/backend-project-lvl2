@@ -45,11 +45,22 @@ const genDiff = (data1, data2, formatter = stylish) => {
 
 const program = new Command();
 
+const setFormatter = (name) => {
+  switch (name) {
+    case 'stylish':
+      return stylish;
+    default:
+      throw new Error('Unknown output format');
+  }
+};
+
 program.name('gendiff').version('0.2.0')
   .description('Compares two configuration files and shows a difference.')
   .arguments('<filepath1> <filepath2>')
   .helpOption('', 'output usage information')
-  .option('-f, --format [type]', 'output format')
-  .action((file1, file2) => console.log(genDiff(getData(file1), getData(file2))));
+  .option('-f, --format [type]', 'output format', 'stylish')
+  .action((file1, file2) => console.log(genDiff(
+    getData(file1), getData(file2), setFormatter(program.opts().format),
+  )));
 
 export { genDiff as default, program as gendiff };
