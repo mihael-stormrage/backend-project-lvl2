@@ -25,6 +25,9 @@ pe "gendiff file1.json file1.yaml"
 wait
 clear
 pe "gendiff --format plain file1.json file2.json"
+wait
+clear
+pe "gendiff -f json file1.json file2.json"
 
 PROMPT_TIMEOUT=3
 wait

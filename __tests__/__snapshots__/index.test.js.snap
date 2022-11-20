@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`diff in json format 1`] = `
+"[
+  {
+    \\"type\\": \\"unchanged\\",
+    \\"name\\": \\"common\\",
+    \\"children\\": [
+      {
+        \\"type\\": \\"unchanged\\",
+        \\"name\\": \\"setting1\\",
+        \\"value\\": \\"Value 1\\",
+        \\"nested\\": false
+      },
+      {
+        \\"name\\": \\"setting2\\",
+        \\"path\\": [
+          \\"common\\",
+          \\"setting2\\"
+        ],
+        \\"type\\": \\"removed\\",
+        \\"nested\\": false,
+        \\"value\\": 200
+      },
+      {
+        \\"name\\": \\"setting3\\",
+        \\"path\\": [
+          \\"common\\",
+          \\"setting3\\"
+        ],
+        \\"type\\": \\"old\\",
+        \\"nested\\": false,
+        \\"value\\": true
+      },
+      {
+        \\"name\\": \\"setting3\\",
+        \\"path\\": [
+          \\"common\\",
+          \\"setting3\\"
+        ],
+        \\"type\\": \\"new\\",
+        \\"nested\\": false,
+        \\"value\\": null
+      },
+      {
+        \\"type\\": \\"unchanged\\",
+        \\"name\\": \\"setting6\\",
+        \\"children\\": [
+          {
+            \\"type\\": \\"unchanged\\",
+            \\"name\\": \\"key\\",
+            \\"value\\": \\"value\\",
+            \\"nested\\": false
+          },
+          {
+            \\"type\\": \\"unchanged\\",
+            \\"name\\": \\"doge\\",
+            \\"children\\": [
+              {
+                \\"name\\": \\"wow\\",
+                \\"path\\": [
+                  \\"common\\",
+                  \\"setting6\\",
+                  \\"doge\\",
+                  \\"wow\\"
+                ],
+                \\"type\\": \\"old\\",
+                \\"nested\\": false,
+                \\"value\\": \\"\\"
+              },
+              {
+                \\"name\\": \\"wow\\",
+                \\"path\\": [
+                  \\"common\\",
+                  \\"setting6\\",
+                  \\"doge\\",
+                  \\"wow\\"
+                ],
+                \\"type\\": \\"new\\",
+                \\"nested\\": false,
+                \\"value\\": \\"so much\\"
+              }
+            ],
+            \\"nested\\": true
+          },
+          {
+            \\"name\\": \\"ops\\",
+            \\"path\\": [
+              \\"common\\",
+              \\"setting6\\",
+              \\"ops\\"
+            ],
+            \\"type\\": \\"added\\",
+            \\"nested\\": false,
+            \\"value\\": \\"vops\\"
+          }
+        ],
+        \\"nested\\": true
+      },
+      {
+        \\"name\\": \\"follow\\",
+        \\"path\\": [
+          \\"common\\",
+          \\"follow\\"
+        ],
+        \\"type\\": \\"added\\",
+        \\"nested\\": false,
+        \\"value\\": false
+      },
+      {
+        \\"name\\": \\"setting4\\",
+        \\"path\\": [
+          \\"common\\",
+          \\"setting4\\"
+        ],
+        \\"type\\": \\"added\\",
+        \\"nested\\": false,
+        \\"value\\": \\"blah blah\\"
+      },
+      {
+        \\"name\\": \\"setting5\\",
+        \\"path\\": [
+          \\"common\\",
+          \\"setting5\\"
+        ],
+        \\"type\\": \\"added\\",
+        \\"nested\\": true,
+        \\"children\\": [
+          {
+            \\"name\\": \\"key5\\",
+            \\"type\\": \\"unchanged\\",
+            \\"nested\\": false,
+            \\"value\\": \\"value5\\"
+          }
+        ]
+      }
+    ],
+    \\"nested\\": true
+  },
+  {
+    \\"type\\": \\"unchanged\\",
+    \\"name\\": \\"group1\\",
+    \\"children\\": [
+      {
+        \\"name\\": \\"baz\\",
+        \\"path\\": [
+          \\"group1\\",
+          \\"baz\\"
+        ],
+        \\"type\\": \\"old\\",
+        \\"nested\\": false,
+        \\"value\\": \\"bas\\"
+      },
+      {
+        \\"name\\": \\"baz\\",
+        \\"path\\": [
+          \\"group1\\",
+          \\"baz\\"
+        ],
+        \\"type\\": \\"new\\",
+        \\"nested\\": false,
+        \\"value\\": \\"bars\\"
+      },
+      {
+        \\"type\\": \\"unchanged\\",
+        \\"name\\": \\"foo\\",
+        \\"value\\": \\"bar\\",
+        \\"nested\\": false
+      },
+      {
+        \\"name\\": \\"nest\\",
+        \\"path\\": [
+          \\"group1\\",
+          \\"nest\\"
+        ],
+        \\"type\\": \\"old\\",
+        \\"nested\\": true,
+        \\"children\\": [
+          {
+            \\"name\\": \\"key\\",
+            \\"type\\": \\"unchanged\\",
+            \\"nested\\": false,
+            \\"value\\": \\"value\\"
+          }
+        ]
+      },
+      {
+        \\"name\\": \\"nest\\",
+        \\"path\\": [
+          \\"group1\\",
+          \\"nest\\"
+        ],
+        \\"type\\": \\"new\\",
+        \\"nested\\": false,
+        \\"value\\": \\"str\\"
+      }
+    ],
+    \\"nested\\": true
+  },
+  {
+    \\"name\\": \\"group2\\",
+    \\"path\\": [
+      \\"group2\\"
+    ],
+    \\"type\\": \\"removed\\",
+    \\"nested\\": true,
+    \\"children\\": [
+      {
+        \\"name\\": \\"abc\\",
+        \\"type\\": \\"unchanged\\",
+        \\"nested\\": false,
+        \\"value\\": 12345
+      },
+      {
+        \\"name\\": \\"deep\\",
+        \\"type\\": \\"unchanged\\",
+        \\"nested\\": true,
+        \\"children\\": [
+          {
+            \\"name\\": \\"id\\",
+            \\"type\\": \\"unchanged\\",
+            \\"nested\\": false,
+            \\"value\\": 45
+          }
+        ]
+      }
+    ]
+  },
+  {
+    \\"name\\": \\"group3\\",
+    \\"path\\": [
+      \\"group3\\"
+    ],
+    \\"type\\": \\"added\\",
+    \\"nested\\": true,
+    \\"children\\": [
+      {
+        \\"name\\": \\"deep\\",
+        \\"type\\": \\"unchanged\\",
+        \\"nested\\": true,
+        \\"children\\": [
+          {
+            \\"name\\": \\"id\\",
+            \\"type\\": \\"unchanged\\",
+            \\"nested\\": true,
+            \\"children\\": [
+              {
+                \\"name\\": \\"number\\",
+                \\"type\\": \\"unchanged\\",
+                \\"nested\\": false,
+                \\"value\\": 45
+              }
+            ]
+          }
+        ]
+      },
+      {
+        \\"name\\": \\"fee\\",
+        \\"type\\": \\"unchanged\\",
+        \\"nested\\": false,
+        \\"value\\": 100500
+      }
+    ]
+  }
+]"
+`;

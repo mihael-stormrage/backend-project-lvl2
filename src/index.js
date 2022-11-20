@@ -40,7 +40,7 @@ const makeDiffAst = (obj1, obj2, path = []) => {
         ].flat();
         if (items.length === 2) return items;
         const typeCast = { old: 'removed', new: 'added' };
-        const item = items[0];
+        const [item] = items;
         item.type = typeCast[item.type];
         return items;
       }
