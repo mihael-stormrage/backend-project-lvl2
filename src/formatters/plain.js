@@ -1,5 +1,13 @@
 import _ from 'lodash';
 
+const typeStrings = {
+  unchanged: () => '',
+  removed: (path) => `Property '${path}' was removed\n`,
+  added: (path, value) => `Property '${path}' was added with value: ${value}\n`,
+  old: (path, value) => `Property '${path}' was updated. From ${value}`,
+  new: (_path, value) => ` to ${value}\n`,
+};
+
 const flattenByPath = (e) => {
   if (!e.nested) return e;
   const { children, ...item } = e;
@@ -11,13 +19,9 @@ const plain = (ast) => _.sortBy(_.flatMapDeep(ast, flattenByPath), ['path'])
     type, path, value, nested,
   }) => {
     const getValue = () => (nested ? '[complex value]' : (typeof value === 'string' && `'${value}'`) || value);
-    const prop = path?.join('.');
+    const pathString = path?.join('.');
 
-    if (type === 'unchanged') return '';
-    if (type === 'removed') return `Property '${prop}' was removed\n`;
-    if (type === 'added') return `Property '${prop}' was added with value: ${getValue()}\n`;
-    if (type === 'old') return `Property '${prop}' was updated. From ${getValue()}`;
-    if (type === 'new') return ` to ${getValue()}\n`;
+    return typeStrings[type](pathString, getValue());
   }, []).join('');
 
 export default plain;
