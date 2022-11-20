@@ -9,8 +9,8 @@ const stylish = (ast, space = 1) => {
       const getValue = () => (nested ? stylish(children, space + 1) : value);
 
       if (type === 'unchanged') acc.push(`${indent.repeat(space * 2)}${name}: ${getValue()}`);
-      if (type === 'old') acc.push(`${indent.repeat(space * 2 - 1)}- ${name}: ${getValue()}`);
-      if (type === 'new') acc.push(`${indent.repeat(space * 2 - 1)}+ ${name}: ${getValue()}`);
+      if (type === 'old' || type === 'removed') acc.push(`${indent.repeat(space * 2 - 1)}- ${name}: ${getValue()}`);
+      if (type === 'new' || type === 'added') acc.push(`${indent.repeat(space * 2 - 1)}+ ${name}: ${getValue()}`);
 
       return acc;
     }, []);

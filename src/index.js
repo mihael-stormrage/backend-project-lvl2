@@ -6,18 +6,19 @@ import stylish from './formatters/stylish.js';
 
 const isNested = (v) => typeof v === 'object' && v !== null;
 
-const processChanged = (val, name, type) => {
+const processChanged = (val, options) => {
+  if (val === undefined) return [];
   const result = [];
-  if (val !== undefined) {
-    const node = { type, name, nested: isNested(val) };
-    if (node.nested) node.children = _.flatMap(val, (v, k) => processChanged(v, k, 'unchanged'));
-    else node.value = val;
-    result.push(node);
-  }
+  const node = {
+    ...options, nested: isNested(val),
+  };
+  if (node.nested) node.children = _.flatMap(val, (v, k) => processChanged(v, { name: k, type: 'unchanged' }));
+  else node.value = val;
+  result.push(node);
   return result;
 };
 
-const makeDiffAst = (obj1, obj2) => {
+const makeDiffAst = (obj1, obj2, path = []) => {
   const keys = [...new Set([...Object.keys(obj1), ...Object.keys(obj2)])];
   return keys.flatMap((key) => {
     const val1 = obj1[key];
@@ -26,14 +27,23 @@ const makeDiffAst = (obj1, obj2) => {
     switch (true) {
       case isNested(val1) && isNested(val2):
         return {
-          type: 'unchanged', name: key, children: makeDiffAst(val1, val2), nested: true,
+          type: 'unchanged', name: key, children: makeDiffAst(val1, val2, [...path, key]), nested: true,
         };
       case val1 === val2:
         return {
           type: 'unchanged', name: key, value: val1, nested: false,
         };
-      default:
-        return [processChanged(val1, key, 'old'), processChanged(val2, key, 'new')].flat();
+      default: {
+        const items = [
+          processChanged(val1, { name: key, path: [...path, key], type: 'old' }),
+          processChanged(val2, { name: key, path: [...path, key], type: 'new' }),
+        ].flat();
+        if (items.length === 2) return items;
+        const typeCast = { old: 'removed', new: 'added' };
+        const item = items[0];
+        item.type = typeCast[item.type];
+        return items;
+      }
     }
   });
 };

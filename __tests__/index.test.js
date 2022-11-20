@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import genDiff, { gendiff } from '../src';
-import getData from '../src/parsers.js';
+import getData from '../src/parsers';
+import plain from '../src/formatters/plain';
 
 const getFixturePath = (file) => path.join('__fixtures__', file);
 const getFixture = (file) => fs.readFileSync(getFixturePath(file), 'utf-8');
@@ -22,4 +23,8 @@ test('gendiff --help', () => {
 test('genDiff(data1, data2) fn', () => {
   expect(genDiff(data1, data1)).toBe('No difference');
   expect(genDiff(data1, data2)).toBe(getFixture('stylish').trim());
+});
+
+test('diff plain format', () => {
+  expect(genDiff(data1, data2, plain)).toBe(getFixture('plain'));
 });
