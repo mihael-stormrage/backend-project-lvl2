@@ -54,6 +54,12 @@ const genDiff = (data1, data2, formatter = stylish) => {
   return formatter(diff);
 };
 
+const getDiff = (file1, file2, formatName) => genDiff(
+  getData(file1),
+  getData(file2),
+  getFormatter(formatName),
+);
+
 const program = new Command();
 
 program.name('gendiff').version('1.0.0')
@@ -61,8 +67,6 @@ program.name('gendiff').version('1.0.0')
   .arguments('<filepath1> <filepath2>')
   .helpOption('', 'output usage information')
   .option('-f, --format [type]', 'output format', 'stylish')
-  .action((file1, file2) => console.log(genDiff(
-    getData(file1), getData(file2), getFormatter(program.opts().format),
-  )));
+  .action((file1, file2) => console.log(getDiff(file1, file2, program.opts().format)));
 
-export { genDiff as default, program as gendiff };
+export { getDiff as default, genDiff, program as gendiff };

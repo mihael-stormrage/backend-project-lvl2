@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import genDiff, { gendiff } from '../src';
+import { genDiff, gendiff } from '../src';
 import getData from '../src/parsers';
 import { plain, json } from '../src/formatters';
 
