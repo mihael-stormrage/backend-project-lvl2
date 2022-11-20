@@ -19,7 +19,12 @@ PROMPT_TIMEOUT=2
 wait
 clear
 pe "gendiff file1.yaml file2.yml"
+wait
+clear
 pe "gendiff file1.json file1.yaml"
+wait
+clear
+pe "gendiff --format plain file1.json file2.json"
 
 PROMPT_TIMEOUT=3
 wait
