@@ -1,6 +1,9 @@
+/* eslint-plugin-disable fp */
+/* eslint-disable fp/no-let, fp/no-mutation */
+
 import fs from 'fs';
 import path from 'path';
-import { genDiff, gendiff } from '../src';
+import { genDiff, program } from '../src';
 import getData from '../src/parsers';
 import { plain, json } from '../src/formatters';
 
@@ -17,7 +20,7 @@ beforeEach(() => {
 });
 
 test('gendiff --help', () => {
-  expect(gendiff.helpInformation()).toBe(getFixture('help'));
+  expect(program.helpInformation()).toBe(getFixture('help'));
 });
 
 test('genDiff(data1, data2) fn', () => {
@@ -26,7 +29,7 @@ test('genDiff(data1, data2) fn', () => {
 });
 
 test('diff plain format', () => {
-  expect(genDiff(data1, data2, plain)).toBe(getFixture('plain'));
+  expect(genDiff(data1, data2, plain)).toBe(getFixture('plain').trim());
 });
 
 test('diff in json format', () => {

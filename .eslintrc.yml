@@ -1,5 +1,9 @@
 plugins:
   - jest
+  - fp
+  - disable
+
+processor: disable/disable
 
 env:
   es2020: true
@@ -8,7 +12,7 @@ env:
 extends:
   - airbnb-base
   - plugin:jest/recommended
-
+  - plugin:fp/recommended
 parserOptions:
   ecmaVersion: 11
   sourceType: module
@@ -17,3 +21,9 @@ rules:
   no-console: 0
   import/extensions: 0
   no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]
+  no-restricted-exports: 1
+  fp/no-nil: 0
+  fp/no-throw: 0
+  fp/no-unused-expression: 0
+#  fp/no-rest-parameters: 0
+

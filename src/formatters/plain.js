@@ -10,6 +10,7 @@ const typeStrings = {
 
 const flattenByPath = (e) => {
   if (!e.nested) return e;
+  // eslint-disable-next-line fp/no-rest-parameters
   const { children, ...item } = e;
   return [item, _.flatMapDeep(children, flattenByPath)];
 };
@@ -22,6 +23,6 @@ const plain = (ast) => _.sortBy(_.flatMapDeep(ast, flattenByPath), ['path'])
     const pathString = path?.join('.');
 
     return typeStrings[type](pathString, getValue());
-  }, []).join('');
+  }, []).join('').trim();
 
 export default plain;

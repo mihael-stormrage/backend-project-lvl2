@@ -8,14 +8,21 @@ const isNested = (v) => typeof v === 'object' && v !== null;
 
 const processChanged = (val, options) => {
   if (val === undefined) return [];
-  const result = [];
-  const node = {
-    ...options, nested: isNested(val),
+  const initial = {
+    ...options, nested: isNested(val), value: val,
   };
-  if (node.nested) node.children = _.flatMap(val, (v, k) => processChanged(v, { name: k, type: 'unchanged' }));
-  else node.value = val;
-  result.push(node);
-  return result;
+
+  const buildNode = () => {
+    if (!initial.nested) return initial;
+    // eslint-disable-next-line fp/no-rest-parameters
+    const { value, ...opts } = initial;
+    return {
+      ...opts,
+      children: _.flatMap(value, (v, k) => processChanged(v, { name: k, type: 'unchanged' })),
+    };
+  };
+
+  return [buildNode()];
 };
 
 const makeDiffAst = (obj1, obj2, path = []) => {
@@ -41,8 +48,7 @@ const makeDiffAst = (obj1, obj2, path = []) => {
         if (items.length === 2) return items;
         const typeCast = { old: 'removed', new: 'added' };
         const [item] = items;
-        item.type = typeCast[item.type];
-        return items;
+        return [{ ...item, type: typeCast[item.type] }];
       }
     }
   });
@@ -54,7 +60,7 @@ const genDiff = (data1, data2, formatter = stylish) => {
   return formatter(diff);
 };
 
-const getDiff = (file1, file2, formatName) => genDiff(
+const getDiff = (file1, file2, formatName = 'stylish') => genDiff(
   getData(file1),
   getData(file2),
   getFormatter(formatName),
@@ -69,4 +75,5 @@ program.name('gendiff').version('1.0.0')
   .option('-f, --format [type]', 'output format', 'stylish')
   .action((file1, file2) => console.log(getDiff(file1, file2, program.opts().format)));
 
-export { getDiff as default, genDiff, program as gendiff };
+export default getDiff;
+export { genDiff, program };
